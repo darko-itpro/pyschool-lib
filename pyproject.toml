@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyschoollib"
+version = "0.0.1"
+dependencies = [
+    "pytz",
+]
+authors = [
+  { name="Darko Stankovski", email="darko.itpro@gmail.com" },
+]
+description = "A lib for my training courses"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Operating System :: OS Independent",
+]
+
+[project.optional-dependencies]
+rich = ['rich']
+
+[tool.setuptools.packages.find]
+where= ["src"]
+
+[tool.setuptools.package-data]
+"pyflix.assets" = ["*.csv"]
+
+[project.urls]
+Homepage = "https://github.com/darko-itpro/pyschool-lib"
+Issues = "https://github.com/darko-itpro/pyschool-lib/issues"
