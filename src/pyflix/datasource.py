@@ -6,6 +6,28 @@ from pathlib import Path
 import random
 random.seed()
 
+
+def time_loader():
+    """
+    Fonction simulant la collecte d'une donnée à partir d'une source de données.
+    """
+    return "30"
+
+
+def get_start_time(test=False):
+    """
+    Fonction simulant la collecte de la donnée de temps à partir d'une source de données.
+
+    :param test: Si `True`, le retour sera toujours la chaine "20h01".
+    """
+    start_hour = random.randint(19, 21)
+    start_minutes = random.randint(0, 59 if start_hour < 21 else 38)
+
+    value = f"{start_hour:02}h{start_minutes:02}"
+
+    return value
+
+
 def load_season(show_name=None, season_number=None):
     file_path = Path(__file__).resolve().parent / "assets" / "bbts12.csv"
 
@@ -80,4 +102,18 @@ def _process_line(episode_line: str):
 
 def _to_dict(show, title, season, episode, duration, year):
     episode = {"title": title, "duration": duration}
+
     return episode
+
+def get_movies():
+    """
+    Fonction perméttant d'obtenir une liste de médias.
+    """
+    return [["The Philosopher's Stone", 152, True],
+            ["The Chamber of Secrets", 161, True],
+            ["The Prisoner of Azkaban", 142, False],
+            ["the Goblet of Fire", 157, True],
+            ["the Order of the Phoenix", 138, False],
+            ["the Half-Blood Prince", 153, True],
+            ["the Deathly Hallows – Part 1", 126, False],
+            ["the Deathly Hallows – Part 2", 130, False]]

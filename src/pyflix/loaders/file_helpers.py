@@ -15,9 +15,10 @@ def load_from_filenames(dir_path):
         result = re.search(pattern, episode_name)
 
         if result:
-            yield episode_name[:result.start()].replace("_", " "), \
-                episode_name[result.end():].replace("_", " "), \
-                result.group("episode"), result.group("season")
+            yield (episode_name[:result.start()].replace("_", " "),
+                   episode_name[result.end():].replace("_", " "),
+                   result.group("episode"),
+                   result.group("season"))
 
 
 def load_from_csv(file_path):
