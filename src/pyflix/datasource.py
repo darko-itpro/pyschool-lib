@@ -18,6 +18,9 @@ random.seed()
 
 
 class Level(Enum):
+    """
+    Enum permetant de configurer le niveau du module.
+    """
     NOOBS = 1
     STANDARD = 2
     XPERT = 3
@@ -32,11 +35,7 @@ def set_level(level: Level):
     Permet de paramétrer cette bibliothèque pour le niveau de formation correspondant.
     """
     global _level
-    global get_start_time
-
     _level = level
-
-    get_start_time = _assets["get_start_time"][_level]
 
 
 def time_loader():
@@ -184,14 +183,20 @@ def get_movies():
             ["the Deathly Hallows – Part 2", 130, False]]
 
 
+def get_start_time() -> str:
+    """
+    Fonction simulant la collecte de la donnée de temps à partir d'une source de données.
 
-_assets = {
-    "get_start_time": {
+    Retourne une heure au format '20h42'. Pour un usage avancé, le format peut-être '20:42'
+    ou '2042'.
+    """
+    assets = {
         Level.NOOBS: _noob_get_start_time,
         Level.STANDARD: _std_get_start_time,
         Level.XPERT: _xpert_get_start_time,
         Level.HACKER: _hacker_get_start_time
     }
-}
-get_start_time = _noob_get_start_time
+    return assets[_level]()
+
+
 set_level(Level.NOOBS)
