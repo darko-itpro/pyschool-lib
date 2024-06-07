@@ -33,7 +33,7 @@ def set_level(level: Level):
 
     _level = level
 
-    get_start_time = _noob_get_start_time if _level.value < Level.STANDARD.value else _xpert_get_start_time
+    get_start_time = _assets["get_start_time"][_level]
 
 def time_loader():
     """
@@ -68,6 +68,15 @@ def _xpert_get_start_time() -> str:
     """
     value = _std_get_start_time()
     return value if random.randint(0, 9) % 2 else value.replace('h', ':')
+
+
+def _hacker_get_start_time() -> str:
+    """
+    Fonction simulant la collecte de la donnée de temps à partir d'une source de données.
+    L'heure retournée est comprise entre '19h00' et '21h38', le séparateur peut-être 'h' ou ':'.
+    """
+    value = _xpert_get_start_time()
+    return value if random.randint(0, 9) % 2 else (value[:2] + value[-2:])
 
 
 
@@ -121,15 +130,21 @@ def _randomize_viewed(season: list) -> None:
     """
     is_viewed = True
 
+    if _level.value >= Level.XPERT.value:
+        if random.random() > 0.95:
+            season.clear()
 
     for episode in season:
-        if random.random() > 0.8:
-            is_viewed = False
+        if random.random() > (0.8 if _level.value < Level.XPERT.value else 0.95):
+            if _level.value >= Level.XPERT.value:
+                is_viewed = not is_viewed
+            else:
+                is_viewed = False
 
         if is_viewed:
             episode['viewed'] = True
         else:
-            if random.random() > 0.6:
+            if random.random() > 0.4:
                 episode['viewed'] = False
 
 def _process_line(episode_line: str):
@@ -161,4 +176,13 @@ def get_movies():
             ["the Deathly Hallows – Part 1", 126, False],
             ["the Deathly Hallows – Part 2", 130, False]]
 
+
+_assets = {
+    "get_start_time": {
+        Level.NOOBS: _noob_get_start_time,
+        Level.STANDARD: _std_get_start_time,
+        Level.XPERT: _xpert_get_start_time,
+        Level.HACKER: _hacker_get_start_time
+    }
+}
 set_level(Level.NOOBS)
