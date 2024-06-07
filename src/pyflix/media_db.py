@@ -34,6 +34,7 @@ SQL_ADD_EPISODE = "INSERT INTO episodes values(?, ?, ?, ?, ?);"
 SQL_GET_EPISODE = "SELECT title, season, e_number, duration, year FROM episodes where season = ? and e_number = ?;"
 SQL_GET_ALL_EPISODES = "SELECT title, season, e_number, duration, year FROM episodes ORDER BY season, e_number;"
 SQL_GET_EPISODES_FOR_SEASON = "SELECT title, season, e_number, duration, year FROM episodes where season = ? ORDER BY e_number;"
+SQL_GET_EPISODES_BETWEEN = "SELECT  title, season, e_number, duration, year FROM episodes where season >= ? and episode >= ? ORDER BY season, e_number;"
 SQL_COUNT_EPISODES = "SELECT COUNT(*) FROM episodes;"
 
 KEY_SHOW_NAME = "name"
@@ -134,6 +135,25 @@ class TvShow:
         cur = self._connect.cursor()
         cur.execute(SQL_GET_EPISODE, (item.season_number, item.number))
         return True if cur.fetchone else False
+
+    def __getitem__(self, item):
+        cur = self._connect.cursor()
+
+        if isinstance(item, slice):
+            raise ValueError(f"Slices not supported yet.")
+
+            # TODO: Gérer le slice
+            start_season, start_episode = item.start if item.start else (0, 0)
+            end_season, end_episode = item.stop if item.stop else (None, None)
+
+
+        else:
+            season_number, number = item
+            cur.execute(SQL_GET_EPISODE, (season_number, number))
+            if episode_data := cur.fetchone():
+                return Episode(*episode_data)
+            else:
+                raise KeyError(f"No episode for season {season_number} number {number}")
 
     def __iter__(self):
         return TvShowIterator(self._db_name)
