@@ -16,13 +16,16 @@ import random
 from enum import Enum
 random.seed()
 
+
 class Level(Enum):
     NOOBS = 1
     STANDARD = 2
     XPERT = 3
     HACKER = 4
 
+
 _level = Level.NOOBS
+
 
 def set_level(level: Level):
     """
@@ -34,6 +37,7 @@ def set_level(level: Level):
     _level = level
 
     get_start_time = _assets["get_start_time"][_level]
+
 
 def time_loader():
     """
@@ -49,6 +53,7 @@ def _noob_get_start_time() -> str:
     """
     return "20h42"
 
+
 def _std_get_start_time() -> str:
     """
     Fonction simulant la collecte de la donnée de temps à partir d'une source de données.
@@ -60,6 +65,7 @@ def _std_get_start_time() -> str:
     value = f"{start_hour:02}h{start_minutes:02}"
 
     return value
+
 
 def _xpert_get_start_time() -> str:
     """
@@ -77,7 +83,6 @@ def _hacker_get_start_time() -> str:
     """
     value = _xpert_get_start_time()
     return value if random.randint(0, 9) % 2 else (value[:2] + value[-2:])
-
 
 
 def load_season(show_name=None, season_number=None):
@@ -147,6 +152,7 @@ def _randomize_viewed(season: list) -> None:
             if random.random() > 0.4:
                 episode['viewed'] = False
 
+
 def _process_line(episode_line: str):
     """
     Extrait et transtype les données à partir d'une ligne type csv.
@@ -163,6 +169,7 @@ def _to_dict(show, title, season, episode, duration, year):
 
     return episode
 
+
 def get_movies():
     """
     Fonction perméttant d'obtenir une liste de médias.
@@ -177,6 +184,7 @@ def get_movies():
             ["the Deathly Hallows – Part 2", 130, False]]
 
 
+
 _assets = {
     "get_start_time": {
         Level.NOOBS: _noob_get_start_time,
@@ -185,4 +193,5 @@ _assets = {
         Level.HACKER: _hacker_get_start_time
     }
 }
+get_start_time = _noob_get_start_time
 set_level(Level.NOOBS)

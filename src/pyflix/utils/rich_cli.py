@@ -8,7 +8,8 @@ from rich.console import Console
 
 console = Console()
 
-def display_shows(shows:dict):
+
+def display_shows(shows: dict):
     """
     Affiche dans le terminal les informations d'un dictionnaire de séries.
 
@@ -20,6 +21,7 @@ def display_shows(shows:dict):
     for show in shows.values():
         console.rule(show.name)
         display_show(show)
+
 
 def display_show(show):
     """

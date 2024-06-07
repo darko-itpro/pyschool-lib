@@ -3,7 +3,8 @@ Ceci est un module de fonctions utiles pour l'affichage d'informations dans le
 terminal.
 """
 
-def display_shows(shows:dict):
+
+def display_shows(shows: dict):
     """
     Affiche dans le terminal les informations d'un dictionnaire de séries.
 
@@ -15,6 +16,7 @@ def display_shows(shows:dict):
     for show in shows.values():
         print("\n-----")
         display_show(show)
+
 
 def display_show(show):
     """

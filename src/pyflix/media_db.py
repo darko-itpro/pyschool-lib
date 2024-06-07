@@ -12,6 +12,7 @@ place.
 import sqlite3 as sqlite
 from collections import namedtuple
 from pathlib import Path
+import re
 
 SQL_CREATE_EPISODES_TABLE = "CREATE TABLE IF NOT EXISTS episodes ("\
                             "e_number INT NOT NULL, "\
@@ -31,10 +32,16 @@ SQL_ADD_SHOW_DATA = "INSERT INTO show values (?, ?);"
 SQL_GET_SHOW_DATA = "SELECT value FROM show WHERE key = ?;"
 
 SQL_ADD_EPISODE = "INSERT INTO episodes values(?, ?, ?, ?, ?);"
-SQL_GET_EPISODE = "SELECT title, season, e_number, duration, year FROM episodes where season = ? and e_number = ?;"
-SQL_GET_ALL_EPISODES = "SELECT title, season, e_number, duration, year FROM episodes ORDER BY season, e_number;"
-SQL_GET_EPISODES_FOR_SEASON = "SELECT title, season, e_number, duration, year FROM episodes where season = ? ORDER BY e_number;"
-SQL_GET_EPISODES_BETWEEN = "SELECT  title, season, e_number, duration, year FROM episodes where season >= ? and episode >= ? ORDER BY season, e_number;"
+SQL_GET_EPISODE = ("SELECT title, season, e_number, duration, year "
+                   "FROM episodes where season = ? and e_number = ?;")
+SQL_GET_ALL_EPISODES = ("SELECT title, season, e_number, duration, year "
+                        "FROM episodes ORDER BY season, e_number;")
+SQL_GET_EPISODES_FOR_SEASON = ("SELECT title, season, e_number, duration, year "
+                               "FROM episodes where season = ? "
+                               "ORDER BY e_number;")
+SQL_GET_EPISODES_BETWEEN = ("SELECT  title, season, e_number, duration, year "
+                            "FROM episodes where season >= ? and episode >= ? "
+                            "ORDER BY season, e_number;")
 SQL_COUNT_EPISODES = "SELECT COUNT(*) FROM episodes;"
 
 KEY_SHOW_NAME = "name"
@@ -53,8 +60,8 @@ class TvShow:
     def __init__(self, name: str):
         self._name = name.title()
 
-        import re
-        self._db_name = Path(Path.home(), re.sub("[ .()]", "_", name)).with_suffix('.db')  # Voir regex
+        # Cette première ligne utilise les regex pour remplacer (substitute) certains caractères.
+        self._db_name = Path(Path.home(), re.sub("[ .()]", "_", name)).with_suffix('.db')
         self._connect = sqlite.connect(self._db_name)
 
         try:
@@ -63,12 +70,11 @@ class TvShow:
             cur.execute(SQL_CREATE_SHOW_TABLE)
             cur.execute(SQL_ADD_SHOW_DATA, (KEY_SHOW_NAME, self._name))
 
-        except sqlite.Error as e:
+        except sqlite.Error:
             # L'erreur qui se produirait ici résulterait de l'existance des tables.
             # Nous pouvons alors considérer que les tables existent et que le nom est attribué
             cur.execute(SQL_GET_SHOW_DATA, (KEY_SHOW_NAME,))
             self._name = cur.fetchone()[0]
-
 
     def __del__(self):
         try:
@@ -79,7 +85,7 @@ class TvShow:
             print(e)  # Voir docstring à propos du print
 
     def __str__(self):
-        return 'Media DB Connector ({})'.format(self._db_name)
+        return f'Media DB Connector ({self._db_name})'
 
     @property
     def name(self):
@@ -121,7 +127,6 @@ class TvShow:
         return [Episode(*episode_data)
                 for episode_data in cur.fetchall()]
 
-
     @property
     def episodes(self):
         return self.get_episodes()
@@ -134,26 +139,25 @@ class TvShow:
     def __contains__(self, item: Episode):
         cur = self._connect.cursor()
         cur.execute(SQL_GET_EPISODE, (item.season_number, item.number))
-        return True if cur.fetchone else False
+        return bool(cur.fetchone)
 
     def __getitem__(self, item):
         cur = self._connect.cursor()
 
         if isinstance(item, slice):
-            raise ValueError(f"Slices not supported yet.")
+            raise ValueError("Slices not supported yet.")
 
             # TODO: Gérer le slice
             start_season, start_episode = item.start if item.start else (0, 0)
             end_season, end_episode = item.stop if item.stop else (None, None)
-
 
         else:
             season_number, number = item
             cur.execute(SQL_GET_EPISODE, (season_number, number))
             if episode_data := cur.fetchone():
                 return Episode(*episode_data)
-            else:
-                raise KeyError(f"No episode for season {season_number} number {number}")
+
+            raise KeyError(f"No episode for season {season_number} number {number}")
 
     def __iter__(self):
         return TvShowIterator(self._db_name)
@@ -177,17 +181,15 @@ class TvShowIterator:
         cur.execute(SQL_GET_ALL_EPISODES)
 
         self._episodes = [Episode(*episode_data)
-                for episode_data in cur.fetchall()]
+                          for episode_data in cur.fetchall()]
 
         self._connect.close()
-
 
     def __iter__(self):
         return self
 
     def __next__(self):
-        next_episode = self._episodes.pop(0)
-        if next_episode:
-            return next_episode
-        else:
-            raise StopIteration()
+        try:
+            return self._episodes.pop(0)
+        except IndexError as exc:
+            raise StopIteration() from exc
