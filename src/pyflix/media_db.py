@@ -14,18 +14,18 @@ from collections import namedtuple
 from pathlib import Path
 import re
 
-SQL_CREATE_EPISODES_TABLE = "CREATE TABLE IF NOT EXISTS episodes ("\
-                            "e_number INT NOT NULL, "\
-                            "season INT NOT NULL, "\
-                            "title TEXT NOT NULL, "\
-                            "duration INT, "\
-                            "year INT, "\
-                            "PRIMARY KEY (e_number , season))"\
+SQL_CREATE_EPISODES_TABLE = "CREATE TABLE IF NOT EXISTS episodes (" \
+                            "e_number INT NOT NULL, " \
+                            "season INT NOT NULL, " \
+                            "title TEXT NOT NULL, " \
+                            "duration INT, " \
+                            "year INT, " \
+                            "PRIMARY KEY (e_number , season))" \
                             ";"
-SQL_CREATE_SHOW_TABLE = "CREATE TABLE IF NOT EXISTS show ("\
-                        "key TEXT NOT NULL, "\
-                        "value TEXT NOT NULL, "\
-                        "PRIMARY KEY (key))"\
+SQL_CREATE_SHOW_TABLE = "CREATE TABLE IF NOT EXISTS show (" \
+                        "key TEXT NOT NULL, " \
+                        "value TEXT NOT NULL, " \
+                        "PRIMARY KEY (key))" \
                         ";"
 
 SQL_ADD_SHOW_DATA = "INSERT INTO show values (?, ?);"
@@ -46,7 +46,6 @@ SQL_COUNT_EPISODES = "SELECT COUNT(*) FROM episodes;"
 
 KEY_SHOW_NAME = "name"
 
-
 # Ce module utilise un namedtuple comme structure de données pour remplacer la classe Episode
 # tout en gardant la syntaxe pour accéder aux attributs.
 Episode = namedtuple("Episode", ('title', 'season_number', 'number', 'duration', 'year'),
@@ -57,6 +56,7 @@ class TvShow:
     """
     TV Show DAO (Data Access Object) pour une série.
     """
+
     def __init__(self, name: str):
         self._name = name.title()
 
@@ -131,6 +131,13 @@ class TvShow:
     def episodes(self):
         return self.get_episodes()
 
+    @property
+    def duration(self):
+        cur = self._connect.cursor()
+        cur.execute(SQL_GET_ALL_EPISODES)
+        return sum([episode_data[3]
+                    for episode_data in cur.fetchall()])
+
     def __len__(self):
         cur = self._connect.cursor()
         cur.execute(SQL_COUNT_EPISODES)
@@ -167,6 +174,7 @@ class TvShowIterator:
     """
     Itérateur sur les épisodes d'une seule série
     """
+
     def __init__(self, datasource):
         """
         L'implémentation de cet itérateur charge tous les épisodes dans un attribut local. Une

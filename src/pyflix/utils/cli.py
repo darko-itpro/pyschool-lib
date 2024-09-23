@@ -27,5 +27,11 @@ def display_show(show):
     :param show: Dictionnaire dont les valeurs sont des objets série.
     """
     print(show.name)
+
+    try:
+        print(f"Durée totale : {show.duration // 60}h{show.duration % 60:02}")
+    except (AttributeError, TypeError):
+        pass
+
     for episode in show.episodes:
         print(f" - {episode.title}")

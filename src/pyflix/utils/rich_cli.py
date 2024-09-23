@@ -36,3 +36,8 @@ def display_show(show):
         t.add(episode.title, style="blue")
 
     console.print(t)
+
+    try:
+        print(f"Durée totale : {show.duration // 60}h{show.duration % 60:02}")
+    except (AttributeError, TypeError):
+        pass

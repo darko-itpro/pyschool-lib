@@ -84,27 +84,44 @@ def _hacker_get_start_time() -> str:
     return value if random.randint(0, 9) % 2 else (value[:2] + value[-2:])
 
 
+def get_shows_names():
+    file_path = Path(__file__).resolve().parent / "assets" / "bbts12.csv"
+
+    with open(file_path, encoding="utf-8") as bbt_file:
+        bbt_file.readline()
+
+        shows = [_process_line(line)[0]
+                    for line in bbt_file]
+
+    shows = sorted(list(set(shows)))
+
+    return shows
+
+
 def load_season(show_name=None, season_number=None):
     file_path = Path(__file__).resolve().parent / "assets" / "bbts12.csv"
 
     with open(file_path, encoding="utf-8") as bbt_file:
         bbt_file.readline()
 
-        episodes = [_process_line(line) for line in bbt_file]
+        episodes = [_process_line(line)
+                    for line in bbt_file
+                    if _is_show(line, show_name)]
 
     return episodes
 
 
-def get_season(user=None) -> list:
+def get_season(show_name:str = None, user:str = None) -> list[dict]:
     """
-    Fonction permettant d'accéder à la saison d'une série. Sans paramètre (ou avec `None`, retourne
-    la liste des titres de la saison. Avec, retourne une liste d'épisodes sous forme de
-    dictionnaires.
+    Fonction permettant d'accéder à la saison d'une série. Sans paramètre (ou avec `None`),
+    retourne la liste des titres de la saison. Avec, retourne une liste d'épisodes sous forme
+    de dictionnaires.
 
     Le nombre d'épisodes vus/non vus est aléatoire. Lors de la génération de la liste, chaque
     épisode a 80 % de chances d'être vu. Dès qu'un épisode n'a pas été vu, les suivants sont tous
     non-vus. Un épisode non vu a 60 % de chances de ne pas avoir la clef `viewed`.
 
+    :param show_name: le nom d'une série, si omis, il s'agira de Big Bang Theory
     :param user: un identifiant d'utilisateur.
     :return: Si un identifant est donné, une liste d'épisodes où un épisode est représenté par un
     dictionnaire contenant les clefs `title`, `duration` et `viewed`. Si l'épisode n'a pas été vu,
@@ -115,7 +132,9 @@ def get_season(user=None) -> list:
     with open(file_path, encoding="utf-8") as bbt_file:
         bbt_file.readline()
 
-        episodes = [_to_dict(*_process_line(line)) for line in bbt_file]
+        episodes = [_to_dict(*_process_line(line))
+                    for line in bbt_file
+                    if _is_show(line, show_name)]
 
         if user is not None:
             _randomize_viewed(episodes)
@@ -152,7 +171,7 @@ def _randomize_viewed(season: list) -> None:
                 episode['viewed'] = False
 
 
-def _process_line(episode_line: str):
+def _process_line(episode_line: str) -> tuple[str, str, int, int, int, int]:
     """
     Extrait et transtype les données à partir d'une ligne type csv.
 
@@ -161,6 +180,10 @@ def _process_line(episode_line: str):
     """
     show, season, episode, title, duration, year = episode_line.rstrip().split(';')
     return show, title, int(season), int(episode), int(duration), int(year)
+
+def _is_show(episode_line:str, show_name=None):
+    show_name = show_name or 'The Big Bang Theory'
+    return episode_line.split(';')[0] == show_name
 
 
 def _to_dict(show, title, season, episode, duration, year):
