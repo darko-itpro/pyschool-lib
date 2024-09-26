@@ -132,11 +132,14 @@ def get_season(show_name:str = None, user:str = None) -> list[dict]:
     with open(file_path, encoding="utf-8") as bbt_file:
         bbt_file.readline()
 
-        episodes = [_to_dict(*_process_line(line))
-                    for line in bbt_file
-                    if _is_show(line, show_name)]
-
-        if user is not None:
+        if user is None:
+            episodes = [_process_line(line)[1]
+                        for line in bbt_file
+                        if _is_show(line, show_name)]
+        else:
+            episodes = [_to_dict(*_process_line(line))
+                        for line in bbt_file
+                        if _is_show(line, show_name)]
             _randomize_viewed(episodes)
 
     return episodes
