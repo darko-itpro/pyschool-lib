@@ -98,19 +98,6 @@ def get_shows_names():
     return shows
 
 
-def load_season(show_name=None, season_number=None):
-    file_path = Path(__file__).resolve().parent / "assets" / "bbts12.csv"
-
-    with open(file_path, encoding="utf-8") as bbt_file:
-        bbt_file.readline()
-
-        episodes = [_process_line(line)
-                    for line in bbt_file
-                    if _is_show(line, show_name)]
-
-    return episodes
-
-
 def get_season(show_name:str = None, user:str = None) -> list[dict]:
     """
     Fonction permettant d'accéder à la saison d'une série. Sans paramètre (ou avec `None`),

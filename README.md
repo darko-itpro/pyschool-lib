@@ -54,7 +54,7 @@ Avec PyCharm, vous pouvez aussi passer par le gestionnaire de dépendances.
 Vous pouvez installer cette bibliothèque avec sa dépendance optionnelle `rich` avec l'instruction
 suivante :
 ```
-pip install "pyflix-0.2.0-py3-none-any.whl[rich]"
+pip install "pyflix-0.2.0-py3-none-any.whl[richcli]"
 ```
 
 Voir ci-dessous pour son utilisation
