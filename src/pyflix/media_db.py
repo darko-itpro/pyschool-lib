@@ -135,8 +135,8 @@ class TvShow:
     def duration(self):
         cur = self._connect.cursor()
         cur.execute(SQL_GET_ALL_EPISODES)
-        return sum([episode_data[3]
-                    for episode_data in cur.fetchall()])
+        return sum((episode_data[3]
+                    for episode_data in cur.fetchall()))
 
     def __len__(self):
         cur = self._connect.cursor()
@@ -152,11 +152,17 @@ class TvShow:
         cur = self._connect.cursor()
 
         if isinstance(item, slice):
-            raise ValueError("Slices not supported yet.")
-
-            # TODO: Gérer le slice
             start_season, start_episode = item.start if item.start else (0, 0)
             end_season, end_episode = item.stop if item.stop else (None, None)
+
+            cur.execute(SQL_GET_ALL_EPISODES)
+            episodes = [Episode(*episode_data) for episode_data in cur.fetchall()]
+            episodes = [episode for episode in episodes
+                        if (episode.season_number, episode.number) > (start_season, start_episode)]
+
+            #  TODO: Deal with upper limit
+
+            return episodes
 
         else:
             season_number, number = item

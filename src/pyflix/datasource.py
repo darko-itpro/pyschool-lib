@@ -91,14 +91,14 @@ def get_shows_names():
         bbt_file.readline()
 
         shows = [_process_line(line)[0]
-                    for line in bbt_file]
+                 for line in bbt_file]
 
     shows = sorted(list(set(shows)))
 
     return shows
 
 
-def get_season(show_name:str = None, user:str = None) -> list[dict]:
+def get_season(show_name: str = None, user: str = None) -> list[dict]:
     """
     Fonction permettant d'accéder à la saison d'une série. Sans paramètre (ou avec `None`),
     retourne la liste des titres de la saison. Avec, retourne une liste d'épisodes sous forme
@@ -171,7 +171,8 @@ def _process_line(episode_line: str) -> tuple[str, str, int, int, int, int]:
     show, season, episode, title, duration, year = episode_line.rstrip().split(';')
     return show, title, int(season), int(episode), int(duration), int(year)
 
-def _is_show(episode_line:str, show_name=None):
+
+def _is_show(episode_line: str, show_name=None):
     show_name = show_name or 'The Big Bang Theory'
     return episode_line.split(';')[0] == show_name
 
