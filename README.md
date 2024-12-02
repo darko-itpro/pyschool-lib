@@ -28,15 +28,22 @@ Vous avez alors un répertoire `build`avec une archive `tar.gz` et une `wheel`.
 En fonction, pour l’installation avec ou sans la dépendance optionnelle, l'instruction doit
 ressembler à :
 ```
-pip install pyflix-0.0.2-py3-none-any.whl
-pip install "pyflix-0.0.2-py3-none-any.whl[rich]"
+pip install pyflix-0.0.5-py3-none-any.whl
+pip install "pyflix-0.0.5-py3-none-any.whl[rich]"
 ```
 
 Adaptez la partie concernant le numéro de version.
 
+## Automatisation
+Le projet inclut un fichier `makefile` comportant plusieurs actions :
+ - `setup` qui atomatise l'installation et la mise à jour des dépendances.
+ - `build` qui automatise le packaging en reprenant les actions décrites plus haut (hors
+   installation).
+ - `clean` qui supprime le répertoire dist et son contenu.
+
 ## Un projet de support pour les exercices
 Vous assistez à ma formation avec un projet pour les exercices. Vous avez été dirigé sur cette
-page pour compéter les dépendances. Suivez alors les instructions suivantes.
+page pour compléter les dépendances. Suivez alors les instructions suivantes.
 
 ### Récupérez une archive
 Allez sur la page des [releases](https://github.com/darko-itpro/pyschool-lib/releases). Choisissez
