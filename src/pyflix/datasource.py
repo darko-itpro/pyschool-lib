@@ -17,7 +17,7 @@ def time_loader():
 
 
 def get_shows_names():
-    file_path = Path(__file__).resolve().parent / "assets" / "bbts12.csv"
+    file_path = Path(__file__).resolve().parent / "assets" / "tv_shows.csv"
 
     with open(file_path, encoding="utf-8") as bbt_file:
         bbt_file.readline()
