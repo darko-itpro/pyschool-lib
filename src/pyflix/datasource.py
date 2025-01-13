@@ -5,18 +5,19 @@ Ce module est une source de données pour les différents exercices. Attention �
 from pathlib import Path
 import random
 from pyflix.loaders import file_helpers
+from collections.abc import Iterator
 
 random.seed()
 
 
-def time_loader():
+def time_loader() -> str:
     """
     Fonction simulant la collecte d'une donnée à partir d'une source de données.
     """
     return "30"
 
 
-def get_shows_names():
+def get_shows_names() -> list[str]:
     file_path = Path(__file__).resolve().parent / "assets" / "tv_shows.csv"
 
     with open(file_path, encoding="utf-8") as bbt_file:
@@ -41,18 +42,18 @@ def _process_line(episode_line: str) -> tuple[str, str, int, int, int, int]:
     return show, title, int(season), int(episode), int(duration), int(year)
 
 
-def _is_show(episode_line: str, show_name=None):
+def _is_show(episode_line: str, show_name:str|None=None) -> bool:
     show_name = show_name or 'The Big Bang Theory'
     return episode_line.split(';')[0] == show_name
 
 
-def _to_dict(show, title, season, episode, duration, year):
+def _to_dict(show, title:str, season, episode, duration:int, year) -> dict:
     episode = {"title": title, "duration": duration}
 
     return episode
 
 
-def get_movies():
+def get_movies() -> list[list]:
     """
     Fonction perméttant d'obtenir une liste de médias.
     """
@@ -65,7 +66,7 @@ def get_movies():
             ["the Deathly Hallows – Part 1", 126, False],
             ["the Deathly Hallows – Part 2", 130, False]]
 
-def load_show(name=None):
+def load_show(name:str|None=None) -> Iterator[tuple[str, ...]]:
     """
     Load shows from the datasource.
 

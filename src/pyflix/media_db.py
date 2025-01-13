@@ -88,11 +88,11 @@ class TvShow:
         return f'Media DB Connector ({self._db_name})'
 
     @property
-    def name(self):
+    def name(self) -> str:
         return self._name
 
     def add_episode(self, title: str, ep_number: int, season_number: int,
-                    duration: int = None, year: int = None):
+                    duration: int|None = None, year: int|None = None) -> None:
         """
         Ajoute un épisode à la collection.
 
@@ -110,7 +110,7 @@ class TvShow:
         except sqlite.IntegrityError as ext:
             raise ValueError(f"Episode {title} s{season_number}e{ep_number} exists") from ext
 
-    def get_episodes(self, season=None):
+    def get_episodes(self, season:int|str|None = None):
         """
         Permet d'accéder aux épisodes en fonction de la saison.
 
@@ -128,11 +128,11 @@ class TvShow:
                 for episode_data in cur.fetchall()]
 
     @property
-    def episodes(self):
+    def episodes(self) -> list[Episode]:
         return self.get_episodes()
 
     @property
-    def duration(self):
+    def duration(self) -> int:
         cur = self._connect.cursor()
         cur.execute(SQL_GET_ALL_EPISODES)
         return sum((episode_data[3]

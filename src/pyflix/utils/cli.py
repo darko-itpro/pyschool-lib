@@ -4,7 +4,7 @@ terminal.
 """
 
 
-def display_shows(shows: dict):
+def display_shows(shows: dict) -> None:
     """
     Affiche dans le terminal les informations d'un dictionnaire de séries.
 
@@ -18,7 +18,7 @@ def display_shows(shows: dict):
         display_show(show)
 
 
-def display_show(show):
+def display_show(show) -> None:
     """
     Affiche dans le terminal les informations d'une série. La série doit avoir
     un attribut `name` et un attribut `episodes` contenant des objets ayant

@@ -2,7 +2,7 @@ from pathlib import Path
 import re
 
 
-def load_from_filenames(dir_path):
+def load_from_filenames(dir_path:Path|str) -> tuple[str, str, str, str]:
     """
     Générateur qui fournit les informations média série à partir du nom des fichiers du répertoire.
 
@@ -22,7 +22,7 @@ def load_from_filenames(dir_path):
                    )
 
 
-def load_from_csv(file_path):
+def load_from_csv(file_path:Path|str) -> tuple[str, str, str, str, str, str]:
     """
     Générateur qui fournit les informations média série à partir d'un fichier csv
 
