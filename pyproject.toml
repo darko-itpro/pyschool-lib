@@ -21,7 +21,7 @@ classifiers = [
 ]
 
 [project.optional-dependencies]
-richcli = ['rich']
+cli = ['rich', 'questionary']
 
 [tool.setuptools.packages.find]
 where= ["src"]

@@ -29,7 +29,7 @@ En fonction, pour l’installation avec ou sans la dépendance optionnelle, l'in
 ressembler à :
 ```
 pip install pyflix-0.0.5-py3-none-any.whl
-pip install "pyflix-0.0.5-py3-none-any.whl[rich]"
+pip install "pyflix-0.0.5-py3-none-any.whl[cli]"
 ```
 
 Adaptez la partie concernant le numéro de version.
@@ -58,11 +58,14 @@ pip install pyflix-0.2.0-py3-none-any.whl
 Avec PyCharm, vous pouvez aussi passer par le gestionnaire de dépendances.
 
 ### Installation avec les dépendances optionnelles
-Vous pouvez installer cette bibliothèque avec sa dépendance optionnelle `rich` avec l'instruction
-suivante :
+Vous pouvez installer cette bibliothèque avec ses dépendances optionnelles pour l'invite en ligne
+de commande. Utilisez l'instruction suivante :
 ```
-pip install "pyflix-0.2.0-py3-none-any.whl[richcli]"
+pip install "pyflix-0.2.0-py3-none-any.whl[cli]"
 ```
+
+Ceci aura pour conséquence d'installer en plus les dépendances optionnelles qui sont référencées
+par le *groupe* `cli`. En l'occurence, il s'agit de `rich` et `questionary`.
 
 Voir ci-dessous pour son utilisation
 
