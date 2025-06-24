@@ -2,7 +2,7 @@ from pathlib import Path
 import re
 
 
-def load_from_filenames(dir_path:Path|str) -> tuple[str, str, str, str]:
+def load_from_filenames(dir_path:Path|str):
     """
     Générateur qui fournit les informations média série à partir du nom des fichiers du répertoire.
 
@@ -22,7 +22,7 @@ def load_from_filenames(dir_path:Path|str) -> tuple[str, str, str, str]:
                    )
 
 
-def load_from_csv(file_path:Path|str) -> tuple[str, str, str, str, str, str]:
+def load_from_csv(file_path:Path|str):
     """
     Générateur qui fournit les informations média série à partir d'un fichier csv
 
@@ -36,3 +36,18 @@ def load_from_csv(file_path:Path|str) -> tuple[str, str, str, str, str, str]:
         for episode in csv_file:
             show, season, number, title, duration, year = episode.strip().split(";")
             yield show, title, season, number, duration, year
+
+
+def load_from_sources(sources:list):
+    """
+    Générateur qui fournit les informations média série à partir d'une liste de sources.
+
+    :param sources: Liste chemins soit vers des fichiers csv soit vers des répertoires.
+    """
+    for source in sources:
+        source = Path(source)
+
+        if source.is_file():
+            yield from load_from_csv(source)
+        elif source.is_dir():
+            yield from load_from_filenames(source)

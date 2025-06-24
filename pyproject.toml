@@ -20,8 +20,9 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 
-[project.optional-dependencies]
-cli = ['rich', 'questionary']
+[project.urls]
+Homepage = "https://github.com/darko-itpro/pyschool-lib"
+Issues = "https://github.com/darko-itpro/pyschool-lib/issues"
 
 [tool.setuptools.packages.find]
 where= ["src"]
@@ -29,6 +30,14 @@ where= ["src"]
 [tool.setuptools.package-data]
 "pyflix.assets" = ["*.csv"]
 
-[project.urls]
-Homepage = "https://github.com/darko-itpro/pyschool-lib"
-Issues = "https://github.com/darko-itpro/pyschool-lib/issues"
+[project.optional-dependencies]
+cli = ['rich', 'questionary']
+
+[tool.pytest.ini_options]
+addopts = "-ra"
+testpaths = [
+    "tests",
+]
+pythonpath = [
+  "src"
+]
