@@ -10,13 +10,6 @@ from collections.abc import Iterator
 random.seed()
 
 
-def time_loader() -> str:
-    """
-    Fonction simulant la collecte d'une donnée à partir d'une source de données.
-    """
-    return "30"
-
-
 def get_shows_names() -> list[str]:
     file_path = Path(__file__).resolve().parent / "assets" / "tv_shows.csv"
 
@@ -90,10 +83,14 @@ def load_show(name:str|None=None) -> Iterator[tuple[str, ...]]:
 def get_start_time() -> str:
     """
     Fonction simulant la collecte de la donnée de temps à partir d'une source de données.
-    L'heure retournée est toujours '20h42'
+    L'heure retournée est comprise entre '19h00' et '21h38'.
     """
-    return "20h42"
+    start_hour = random.randint(19, 21)
+    start_minutes = random.randint(0, 59 if start_hour < 21 else 38)
 
+    value = f"{start_hour:02}h{start_minutes:02}"
+
+    return value
 
 def get_season(show_name: str = None, user: str = None) -> list[dict]:
     """
