@@ -31,11 +31,17 @@ def display_show(show) -> None:
 
     :param show: Dictionnaire dont les valeurs sont des objets série.
     """
-    t = Tree(show.name)
+    t_show = Tree(show.name)
+    t_season = None
+    current_season_number = None
     for episode in show.episodes:
-        t.add(episode.title, style="blue")
+        if current_season_number != episode.season_number:
+            current_season_number = episode.season_number
+            t_season = Tree(f"Season {current_season_number}", style="blue")
+            t_show.add(t_season)
+        t_season.add(f'[{episode.number:02}] {episode.title}', style="white")
 
-    console.print(t)
+    console.print(t_show)
 
     try:
         print(f"Durée totale : {show.duration // 60}h{show.duration % 60:02}")

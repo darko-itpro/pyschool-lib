@@ -41,6 +41,16 @@ Le projet inclut un fichier `makefile` comportant plusieurs actions :
    installation).
  - `clean` qui supprime le répertoire dist et son contenu.
 
+En d'autres termes, vous pouvez créer l'archive avec :
+```shell
+make build
+```
+
+et néttoyer votre projet (supprimer le répertoire `dist` et son contenu) avec :
+```shell
+make clean
+```
+
 ## Un projet de support pour les exercices
 Vous assistez à ma formation avec un projet pour les exercices. Vous avez été dirigé sur cette
 page pour compléter les dépendances. Suivez alors les instructions suivantes.
