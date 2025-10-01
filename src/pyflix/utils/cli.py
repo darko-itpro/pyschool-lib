@@ -33,5 +33,9 @@ def display_show(show) -> None:
     except (AttributeError, TypeError):
         pass
 
+    current_season = None
     for episode in show.episodes:
-        print(f" - {episode.title}")
+        if episode.season_number != current_season:
+            current_season = episode.season_number
+            print(f"Season {current_season}")
+        print(f" - [{episode.number:02}] {episode.title}")
