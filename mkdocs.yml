@@ -1,0 +1,18 @@
+site_name: Pyschool Lib Documentation
+theme:
+  name: material
+  palette:
+    - scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Dark Mode
+      primary: green
+      accent : deep purple
+
+    - schema: default
+      toggle:
+        icon: material/weather-night
+        name: Light Mode
+      primary: blue
+      accent : deep orange
+
