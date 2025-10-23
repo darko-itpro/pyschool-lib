@@ -41,3 +41,8 @@ testpaths = [
 pythonpath = [
   "src"
 ]
+
+[dependency-groups]
+dev = [
+    "mkdocs-material>=9.6.22",
+]
