@@ -4,6 +4,8 @@ Ce projet a deux objectifs :
 - présenter une application Python prête à être packagée.
 - fournir un package avec du code pour les exercices.
 
+Une [documentation est en cours de réalisation](https://darko-itpro.github.io/pyschool-lib/).
+
 ## Illustration du packaging
 ### Documentation
 Innutile de la paraphraser, la documentation principale est : [le Quickstart setuptools](https://setuptools.pypa.io/en/latest/userguide/quickstart.html).

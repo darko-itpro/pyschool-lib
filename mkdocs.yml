@@ -1,18 +1,6 @@
 site_name: Pyschool Lib Documentation
+nav:
+  - Home: index.md
+  - Packaging: package.md
 theme:
   name: material
-  palette:
-    - scheme: slate
-      toggle:
-        icon: material/weather-sunny
-        name: Dark Mode
-      primary: green
-      accent : deep purple
-
-    - schema: default
-      toggle:
-        icon: material/weather-night
-        name: Light Mode
-      primary: blue
-      accent : deep orange
-
