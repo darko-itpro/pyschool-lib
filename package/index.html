@@ -12,13 +12,15 @@
         <link rel="prev" href="..">
       
       
+        <link rel="next" href="../api/pyflixdatasource/">
+      
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
     
     
       
-        <title>Packaging - Pyschool Lib Documentation</title>
+        <title>Packaging - Pyschool-lib Documentation</title>
       
     
     
@@ -40,6 +42,8 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
     
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -76,7 +80,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Pyschool Lib Documentation" class="md-header__button md-logo" aria-label="Pyschool Lib Documentation" data-md-component="logo">
+    <a href=".." title="Pyschool-lib Documentation" class="md-header__button md-logo" aria-label="Pyschool-lib Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -90,7 +94,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Pyschool Lib Documentation
+            Pyschool-lib Documentation
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -108,46 +112,18 @@
     
     
     
-      
-      
-        <label class="md-header__button md-icon" for="__search">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        </label>
-        <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
-        
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-        </button>
-      </nav>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            Initializing search
-          </div>
-          <ol class="md-search-result__list" role="presentation"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-      
     
+      <div class="md-header__source">
+        <a href="https://github.com/darko-itpro/pyschool-lib" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
     
   </nav>
   
@@ -174,14 +150,26 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Pyschool Lib Documentation" class="md-nav__button md-logo" aria-label="Pyschool Lib Documentation" data-md-component="logo">
+    <a href=".." title="Pyschool-lib Documentation" class="md-nav__button md-logo" aria-label="Pyschool-lib Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
-    Pyschool Lib Documentation
+    Pyschool-lib Documentation
   </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/darko-itpro/pyschool-lib" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -288,13 +276,31 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Le fichier pyproject.toml">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creation-dun-package-les-outils-standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      Création d'un package, les outils standards
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Création d&#39;un package, les outils standards">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#documentation" class="md-nav__link">
     <span class="md-ellipsis">
       Documentation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prerequis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prérequis
     </span>
   </a>
   
@@ -309,17 +315,26 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creation-dun-package-avec-uv" class="md-nav__link">
     <span class="md-ellipsis">
-      Installation
+      Création d'un package, avec uv
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#installation-du-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation du package
+    </span>
+  </a>
   
 </li>
       
@@ -335,6 +350,74 @@
     </ul>
   
 </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Documentation du package
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Documentation du package
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/pyflixdatasource/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    pyflix.datasource
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
       
     </li>
   
@@ -391,13 +474,31 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Le fichier pyproject.toml">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creation-dun-package-les-outils-standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      Création d'un package, les outils standards
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Création d&#39;un package, les outils standards">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#documentation" class="md-nav__link">
     <span class="md-ellipsis">
       Documentation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prerequis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prérequis
     </span>
   </a>
   
@@ -412,17 +513,26 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creation-dun-package-avec-uv" class="md-nav__link">
     <span class="md-ellipsis">
-      Installation
+      Création d'un package, avec uv
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#installation-du-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation du package
+    </span>
+  </a>
   
 </li>
       
@@ -450,6 +560,9 @@
                   
 
 
+  
+  
+
 
 <h1 id="le-packaging">Le packaging</h1>
 <h2 id="quest-ce-quun-package">Qu'est-ce qu'un package ?</h2>
@@ -471,19 +584,27 @@ backend. Ils reposent sur les <a href="https://peps.python.org/pep-0517/">PEP 51
 <p>La PyPA maintient <a href="https://packaging.python.org/en/latest/specifications/pyproject-toml/">les spécifications techniques</a>
 du fichier <code>pyproject.toml</code> ainsi qu'un document plus fonctionnel pour
 <a href="https://packaging.python.org/en/latest/specifications/pyproject-toml/#pyproject-toml-spec">écrire votre pyproject.toml</a>. </p>
+<h2 id="creation-dun-package-les-outils-standards">Création d'un package, les outils <em>standards</em></h2>
 <h3 id="documentation">Documentation</h3>
 <p>Innutile de la paraphraser, la documentation principale est : <a href="https://setuptools.pypa.io/en/latest/userguide/quickstart.html">le Quickstart setuptools</a>.</p>
+<h3 id="prerequis">Prérequis</h3>
+<p>Le projet doit posséder un fichier <code>pyproject.toml</code>. Ce fichier de paramétrage contient toutes les
+informations pour créer l'archive.</p>
 <h3 id="etapes">Étapes</h3>
-<p>Commencer par installer ou mettre à jour <code>build</code> :</p>
+<p>Commencez par installer ou mettre à jour <code>build</code> :</p>
 <pre><code>pip install --upgrade build
 </code></pre>
-<p>Le projet doit posséder un fichier <code>pyproject.toml</code>. C'est dans ce fichier un fichier de
-paramétrage pour créer l'archive.</p>
 <p>L’archive est créée avec la commande</p>
 <pre><code>python -m build
 </code></pre>
 <p>Vous avez alors un répertoire <code>build</code>avec une archive <code>tar.gz</code> et une <code>wheel</code>.</p>
-<h3 id="installation">Installation</h3>
+<h2 id="creation-dun-package-avec-uv">Création d'un package, avec uv</h2>
+<p>uv est un outil récent de gestion de projet et de dépendances.</p>
+<p>Avec uv, exécutez simplement :</p>
+<pre><code>uv build
+</code></pre>
+<p>uv récupérera les dépendances si nécessaire.</p>
+<h2 id="installation-du-package">Installation du package</h2>
 <p>En fonction, pour l’installation avec ou sans la dépendance optionnelle, l'instruction doit
 ressembler à :</p>
 <pre><code>pip install pyflix-0.0.5-py3-none-any.whl
@@ -492,14 +613,16 @@ pip install &quot;pyflix-0.0.5-py3-none-any.whl[cli]&quot;
 <p>Adaptez la partie concernant le numéro de version.</p>
 <h2 id="automatisation">Automatisation</h2>
 <p>Le projet inclut un fichier <code>makefile</code> comportant plusieurs actions :
- - <code>setup</code> qui atomatise l'installation et la mise à jour des dépendances.
- - <code>build</code> qui automatise le packaging en reprenant les actions décrites plus haut (hors
-   installation).
- - <code>clean</code> qui supprime le répertoire dist et son contenu.</p>
+ - <code>.venv/bin/activate</code> : automatise l'installation et la mise à jour des dépendances avec <code>pip</code>.
+ - <code>build</code> : automatise le packaging en reprenant les actions décrites plus haut en utilisant
+   les outils <em>standard</em>.
+ - <code>clean</code> : supprime le répertoire <code>dist</code> et son contenu.</p>
+<p>Le makefile se veut ne reposer que sur les outils standards de Python, les deux premières commandes
+utilisent pip et setuptools.</p>
 <p>En d'autres termes, vous pouvez créer l'archive avec :</p>
 <pre><code class="language-shell">make build
 </code></pre>
-<p>et néttoyer votre projet (supprimer le répertoire <code>dist</code> et son contenu) avec :</p>
+<p>et nettoyer votre projet (supprimer le répertoire <code>dist</code> et son contenu) avec :</p>
 <pre><code class="language-shell">make clean
 </code></pre>
 
