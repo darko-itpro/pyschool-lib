@@ -1,5 +1,5 @@
 """
-Ce module est une source de données pour les différents exercices. Attention à sa configuration.
+Ce module est une source de données pour les différents exercices.
 """
 
 from pathlib import Path
@@ -14,6 +14,7 @@ def get_shows_names() -> list[str]:
     """
     Permet de récupérer la liste des séries connues qui pourront être utilisé avec la
     fonction `get_season()`.
+
     :return: Liste des titres de séries.
     """
     file_path = Path(__file__).resolve().parent / "assets" / "tv_shows.csv"
@@ -53,8 +54,9 @@ def _to_dict(show, title:str, season, episode, duration:int, year) -> dict:
 
 def get_movies() -> list[tuple[str, int, bool]]:
     """
-    Fonction perméttant d'obtenir une liste de médias au format:
-    `tuple(titre, durée, vu)`.
+    Fonction perméttant d'obtenir une liste de médias.
+
+    :return: Une liste de médias au format `tuple(titre, durée, vu)`
     """
     return [("The Philosopher's Stone", 152, True),
             ("The Chamber of Secrets", 161, True),
@@ -67,12 +69,14 @@ def get_movies() -> list[tuple[str, int, bool]]:
 
 def load_show(name:str|None=None) -> Iterator[tuple[str, ...]]:
     """
-    Load shows from the datasource.
+    Load show(s) episodes from the datasource.
 
     You can iterate through the shows which will be tuples (show name, episode title, season
     number, episode number, duration, year).
 
-    :param name: Name of a show. If provides, the episodes will be filtered on this show's name.
+    The episodes order is not guaranteed.
+
+    :param name: Name of a show. If provided, the episodes will be filtered on this show's name.
     :return: a generator object.
     """
     file_path = Path(__file__).resolve().parent / "assets" / "tv_shows.csv"
@@ -90,6 +94,8 @@ def get_start_time() -> str:
     """
     Fonction simulant la collecte de la donnée de temps à partir d'une source de données.
     L'heure retournée est comprise entre '19h00' et '21h38'.
+
+    :return: Une heure au format `"mmhss"` (`'%Mh%S'` pour les connaisseurs).
     """
     start_hour = random.randint(19, 21)
     start_minutes = random.randint(0, 59 if start_hour < 21 else 38)
@@ -152,4 +158,3 @@ def _randomize_viewed(season: list) -> None:
         else:
             if random.random() > 0.4:
                 episode['viewed'] = False
-
