@@ -1,4 +1,4 @@
-.PHONY: clean build
+.PHONY: clean build full_clean
 
 PYTHON_VERSION = 3.13
 
@@ -16,4 +16,4 @@ clean:
 
 full_clean:
 	rm -rf dist
-	rm -rf .venv
+	rm -rf site
