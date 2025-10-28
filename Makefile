@@ -1,9 +1,11 @@
-.PHONY: clean build full_clean
+.PHONY: pipsetup build clean full_clean
 
 PYTHON_VERSION = 3.13
 
-.venv/bin/activate: requirements.txt
+.venv/bin/activate:
 	python${PYTHON_VERSION} -m venv .venv
+
+pipsetup: requirements.txt
 	.venv/bin/pip install --upgrade pip
 	.venv/bin/pip install --upgrade -r requirements.txt
 
