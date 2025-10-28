@@ -11,6 +11,11 @@ random.seed()
 
 
 def get_shows_names() -> list[str]:
+    """
+    Permet de récupérer la liste des séries connues qui pourront être utilisé avec la
+    fonction `get_season()`.
+    :return: Liste des titres de séries.
+    """
     file_path = Path(__file__).resolve().parent / "assets" / "tv_shows.csv"
 
     with open(file_path, encoding="utf-8") as bbt_file:
@@ -46,18 +51,19 @@ def _to_dict(show, title:str, season, episode, duration:int, year) -> dict:
     return episode
 
 
-def get_movies() -> list[list]:
+def get_movies() -> list[tuple[str, int, bool]]:
     """
-    Fonction perméttant d'obtenir une liste de médias.
+    Fonction perméttant d'obtenir une liste de médias au format:
+    `tuple(titre, durée, vu)`.
     """
-    return [["The Philosopher's Stone", 152, True],
-            ["The Chamber of Secrets", 161, True],
-            ["The Prisoner of Azkaban", 142, False],
-            ["the Goblet of Fire", 157, True],
-            ["the Order of the Phoenix", 138, False],
-            ["the Half-Blood Prince", 153, True],
-            ["the Deathly Hallows – Part 1", 126, False],
-            ["the Deathly Hallows – Part 2", 130, False]]
+    return [("The Philosopher's Stone", 152, True),
+            ("The Chamber of Secrets", 161, True),
+            ("The Prisoner of Azkaban", 142, False),
+            ("the Goblet of Fire", 157, True),
+            ("the Order of the Phoenix", 138, False),
+            ("the Half-Blood Prince", 153, True),
+            ("the Deathly Hallows – Part 1", 126, False),
+            ("the Deathly Hallows – Part 2", 130, False)]
 
 def load_show(name:str|None=None) -> Iterator[tuple[str, ...]]:
     """

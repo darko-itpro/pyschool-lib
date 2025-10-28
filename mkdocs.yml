@@ -1,6 +1,15 @@
-site_name: Pyschool Lib Documentation
+site_name: Pyschool-lib Documentation
+repo_url: https://github.com/darko-itpro/pyschool-lib
+plugins:
+- mkdocstrings:
+    handlers:
+      python:
+        options:
+          docstring_style: sphinx
 nav:
   - Home: index.md
   - Packaging: package.md
+  - Documentation du package:
+    - pyflix.datasource: api/pyflixdatasource.md
 theme:
   name: material
