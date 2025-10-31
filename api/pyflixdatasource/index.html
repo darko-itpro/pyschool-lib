@@ -9,8 +9,10 @@
       
       
       
-        <link rel="prev" href="../../package/">
+        <link rel="prev" href="../">
       
+      
+        <link rel="next" href="../utils/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -225,6 +227,18 @@
   
     
     
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
     
     
     
@@ -235,25 +249,34 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-            
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
-    Documentation du package
+    Documentation des packages
     
   </span>
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            Documentation du package
+            Documentation des packages
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
             
               
                 
@@ -374,6 +397,52 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../utils/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    pyflix.utils
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../loaders/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    pyflix.loaders
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -481,6 +550,11 @@
 
 
 <h1 id="documentation-du-module-pyflixdatasource">Documentation du module pyflix.datasource</h1>
+<p>Ce module est destiné à vous fournir des ressources lors des exercices. Cette page fournit la
+documentation des différentes fonctions. Toutes les fonctions ne sont pas citées lors des exercices
+mais pourront vous aider à avoir des données alternatives pour vérifier le bon fonctionnement de vos
+propositions.</p>
+<hr />
 
 
 <div class="doc doc-object doc-module">
@@ -490,7 +564,7 @@
 <a id="pyflix.datasource"></a>
     <div class="doc doc-contents first">
 
-        <p>Ce module est une source de données pour les différents exercices. Attention à sa configuration.</p>
+        <p>Ce module est une source de données pour les différents exercices.</p>
 
 
 
@@ -523,14 +597,35 @@
 
     <div class="doc doc-contents ">
 
-        <p>Fonction perméttant d'obtenir une liste de médias au format:
-<code>tuple(titre, durée, vu)</code>.</p>
+        <p>Fonction perméttant d'obtenir une liste de médias.</p>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="list">list</span>[<span title="tuple">tuple</span>[<span title="str">str</span>, <span title="int">int</span>, <span title="bool">bool</span>]]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Une liste de médias au format <code>tuple(titre, durée, vu)</code></p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
 
 
             <details class="quote">
               <summary>Source code in <code>src/pyflix/datasource.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">54</span>
-<span class="normal">55</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">55</span>
 <span class="normal">56</span>
 <span class="normal">57</span>
 <span class="normal">58</span>
@@ -541,10 +636,13 @@
 <span class="normal">63</span>
 <span class="normal">64</span>
 <span class="normal">65</span>
-<span class="normal">66</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">get_movies</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]]:</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">get_movies</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Fonction perméttant d&#39;obtenir une liste de médias au format:</span>
-<span class="sd">    `tuple(titre, durée, vu)`.</span>
+<span class="sd">    Fonction perméttant d&#39;obtenir une liste de médias.</span>
+
+<span class="sd">    :return: Une liste de médias au format `tuple(titre, durée, vu)`</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="p">[(</span><span class="s2">&quot;The Philosopher&#39;s Stone&quot;</span><span class="p">,</span> <span class="mi">152</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
             <span class="p">(</span><span class="s2">&quot;The Chamber of Secrets&quot;</span><span class="p">,</span> <span class="mi">161</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
@@ -651,13 +749,7 @@ non-vus. Un épisode non vu a 60 % de chances de ne pas avoir la clef <code>view
 
             <details class="quote">
               <summary>Source code in <code>src/pyflix/datasource.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">101</span>
-<span class="normal">102</span>
-<span class="normal">103</span>
-<span class="normal">104</span>
-<span class="normal">105</span>
-<span class="normal">106</span>
-<span class="normal">107</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">107</span>
 <span class="normal">108</span>
 <span class="normal">109</span>
 <span class="normal">110</span>
@@ -682,7 +774,13 @@ non-vus. Un épisode non vu a 60 % de chances de ne pas avoir la clef <code>view
 <span class="normal">129</span>
 <span class="normal">130</span>
 <span class="normal">131</span>
-<span class="normal">132</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">get_season</span><span class="p">(</span><span class="n">show_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">user</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">]:</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">get_season</span><span class="p">(</span><span class="n">show_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">user</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Fonction permettant d&#39;accéder à la saison d&#39;une série. Sans paramètre (ou avec `None`),</span>
 <span class="sd">    retourne la liste des titres de la saison. Avec, retourne une liste d&#39;épisodes sous forme</span>
@@ -776,10 +874,12 @@ fonction <code>get_season()</code>.</p>
 <span class="normal">26</span>
 <span class="normal">27</span>
 <span class="normal">28</span>
-<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">get_shows_names</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="normal">29</span>
+<span class="normal">30</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">get_shows_names</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Permet de récupérer la liste des séries connues qui pourront être utilisé avec la</span>
 <span class="sd">    fonction `get_season()`.</span>
+
 <span class="sd">    :return: Liste des titres de séries.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">file_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="s2">&quot;assets&quot;</span> <span class="o">/</span> <span class="s2">&quot;tv_shows.csv&quot;</span>
@@ -814,22 +914,49 @@ fonction <code>get_season()</code>.</p>
 L'heure retournée est comprise entre '19h00' et '21h38'.</p>
 
 
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Une heure au format <code>"mmhss"</code> (<code>'%Mh%S'</code> pour les connaisseurs).</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
             <details class="quote">
               <summary>Source code in <code>src/pyflix/datasource.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">89</span>
-<span class="normal">90</span>
-<span class="normal">91</span>
-<span class="normal">92</span>
-<span class="normal">93</span>
-<span class="normal">94</span>
-<span class="normal">95</span>
-<span class="normal">96</span>
-<span class="normal">97</span>
-<span class="normal">98</span>
-<span class="normal">99</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">get_start_time</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">get_start_time</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Fonction simulant la collecte de la donnée de temps à partir d&#39;une source de données.</span>
 <span class="sd">    L&#39;heure retournée est comprise entre &#39;19h00&#39; et &#39;21h38&#39;.</span>
+
+<span class="sd">    :return: Une heure au format `&quot;mmhss&quot;` (`&#39;%Mh%S&#39;` pour les connaisseurs).</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">start_hour</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">19</span><span class="p">,</span> <span class="mi">21</span><span class="p">)</span>
     <span class="n">start_minutes</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">59</span> <span class="k">if</span> <span class="n">start_hour</span> <span class="o">&lt;</span> <span class="mi">21</span> <span class="k">else</span> <span class="mi">38</span><span class="p">)</span>
@@ -854,9 +981,10 @@ L'heure retournée est comprise entre '19h00' et '21h38'.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Load shows from the datasource.</p>
+        <p>Load show(s) episodes from the datasource.</p>
 <p>You can iterate through the shows which will be tuples (show name, episode title, season
 number, episode number, duration, year).</p>
+<p>The episodes order is not guaranteed.</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -879,7 +1007,7 @@ number, episode number, duration, year).</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Name of a show. If provides, the episodes will be filtered on this show's name.</p>
+                <p>Name of a show. If provided, the episodes will be filtered on this show's name.</p>
               </div>
             </td>
             <td>
@@ -915,9 +1043,7 @@ number, episode number, duration, year).</p>
 
             <details class="quote">
               <summary>Source code in <code>src/pyflix/datasource.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">68</span>
-<span class="normal">69</span>
-<span class="normal">70</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">70</span>
 <span class="normal">71</span>
 <span class="normal">72</span>
 <span class="normal">73</span>
@@ -931,14 +1057,20 @@ number, episode number, duration, year).</p>
 <span class="normal">81</span>
 <span class="normal">82</span>
 <span class="normal">83</span>
-<span class="normal">84</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">load_show</span><span class="p">(</span><span class="n">name</span><span class="p">:</span><span class="nb">str</span><span class="o">|</span><span class="kc">None</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">]]:</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span>
+<span class="normal">88</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">load_show</span><span class="p">(</span><span class="n">name</span><span class="p">:</span><span class="nb">str</span><span class="o">|</span><span class="kc">None</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">]]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Load shows from the datasource.</span>
+<span class="sd">    Load show(s) episodes from the datasource.</span>
 
 <span class="sd">    You can iterate through the shows which will be tuples (show name, episode title, season</span>
 <span class="sd">    number, episode number, duration, year).</span>
 
-<span class="sd">    :param name: Name of a show. If provides, the episodes will be filtered on this show&#39;s name.</span>
+<span class="sd">    The episodes order is not guaranteed.</span>
+
+<span class="sd">    :param name: Name of a show. If provided, the episodes will be filtered on this show&#39;s name.</span>
 <span class="sd">    :return: a generator object.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">file_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="s2">&quot;assets&quot;</span> <span class="o">/</span> <span class="s2">&quot;tv_shows.csv&quot;</span>
@@ -1009,7 +1141,7 @@ number, episode number, duration, year).</p>
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
