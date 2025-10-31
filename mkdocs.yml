@@ -9,7 +9,12 @@ plugins:
 nav:
   - Home: index.md
   - Packaging: package.md
-  - Documentation du package:
+  - Documentation des packages:
+    - api/index.md
     - pyflix.datasource: api/pyflixdatasource.md
+    - pyflix.utils: api/utils.md
+    - pyflix.loaders: api/loaders.md
 theme:
   name: material
+  features:
+    - navigation.indexes

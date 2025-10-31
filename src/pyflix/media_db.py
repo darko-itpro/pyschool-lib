@@ -54,10 +54,16 @@ Episode = namedtuple("Episode", ('title', 'season_number', 'number', 'duration',
 
 class TvShow:
     """
-    TV Show DAO (Data Access Object) pour une série.
+    TV Show représente une série mais cet objet peut être qualifié de *DAO* (Data Access Object) car
+    il sert 
     """
 
     def __init__(self, name: str):
+        """
+        Crée un objet de type TvShow sans épisodes.
+
+        :param name: représente le titre de la série et sera utilisé pour nommer le fichier sqlite.
+        """
         self._name = name.title()
 
         # Cette première ligne utilise les regex pour remplacer (substitute) certains caractères.
@@ -91,16 +97,16 @@ class TvShow:
     def name(self) -> str:
         return self._name
 
-    def add_episode(self, title: str, ep_number: int, season_number: int,
+    def add_episode(self, title: str, season_number: int, ep_number: int,
                     duration: int|None = None, year: int|None = None) -> None:
         """
         Ajoute un épisode à la collection.
 
         :param title: titre de l'épisode
-        :param ep_number: numério de l'épisode
         :param season_number: numéro de saison de l'épisode
-        :param duration: durée en minutes d'un épisode, optionnel - non utilisé
-        :param year: année de l'épisode, optionnel - non utilisé
+        :param ep_number: numéro de l'épisode
+        :param duration: durée en minutes d'un épisode, optionnel
+        :param year: année de l'épisode, optionnel
         :raises ValueError: si l'épisode existe déjà
         """
         try:

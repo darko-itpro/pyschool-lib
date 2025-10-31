@@ -6,6 +6,9 @@ def load_from_filenames(dir_path:Path|str):
     """
     Générateur qui fournit les informations média série à partir du nom des fichiers du répertoire.
 
+    Cette fonction se base sur les regex pour extraire les informations à partir d'un nom de
+    fichier. Voir la documentation pour les détails sur la regax.
+
     :param dir_path: Chemin vers un répertoire de fichiers média correctement formatés
     """
     pattern = "-s(?P<season>[0-9]{2})e(?P<episode>[0-9]{2})-"
@@ -38,7 +41,7 @@ def load_from_csv(file_path:Path|str):
             yield show, title, season, number, duration, year
 
 
-def load_from_sources(sources:list):
+def load_from_sources(sources:list[Path|str]):
     """
     Générateur qui fournit les informations média série à partir d'une liste de sources.
 

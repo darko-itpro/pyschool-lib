@@ -29,7 +29,8 @@ def display_show(show) -> None:
     un attribut `name` et un attribut `episodes` contenant des objets ayant
     eux-même un attribut `title`.
 
-    :param show: Dictionnaire dont les valeurs sont des objets série.
+    :param show: Objet représentant une série et possédant un attribut `name`et un
+    attribut `episodes`.
     """
     t_show = Tree(show.name)
     t_season = None
