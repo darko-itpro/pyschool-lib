@@ -5,6 +5,9 @@ documentation des différentes fonctions. Toutes les fonctions ne sont pas cité
 mais pourront vous aider à avoir des données alternatives pour vérifier le bon fonctionnement de vos
 propositions.
 
+Une page [d'exemples d'usage](../tutos/data_load.md) vous permet de voir comment utiliser ces
+fonctions.
+
 ---
 
 :::pyflix.datasource
