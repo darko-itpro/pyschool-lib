@@ -8,15 +8,22 @@ plugins:
           docstring_style: sphinx
 nav:
   - Home: index.md
-  - Packaging: package.md
-  - Documentation des packages:
-    - api/index.md
-    - pyflix.datasource: api/pyflixdatasource.md
-    - pyflix.utils: api/utils.md
-    - pyflix.loaders: api/loaders.md
-  - Exemple d'usages:
-    - Créer des données PyFlix: tutos/data_load.md
+  - En français:
+    - fr/index.md
+    - Installation: fr/installation.md
+    - Packaging: fr/package.md
+    - Documentation des packages:
+      - fr/api/index.md
+      - pyflix.datasource: fr/api/pyflixdatasource.md
+      - pyflix.utils: fr/api/utils.md
+      - pyflix.loaders: fr/api/loaders.md
+    - Exemple d'usages:
+      - Créer des données PyFlix: fr/tutos/data_load.md
 theme:
   name: material
   features:
     - navigation.indexes
+markdown_extensions:
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
