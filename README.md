@@ -1,5 +1,7 @@
 # Un projet pour illustrer le packaging
 
+🇬🇧 [English version here](README_en.md) 🇬🇧
+
 Ce projet a deux objectifs :
 - présenter une application Python prête à être packagée.
 - fournir un package avec du code pour les exercices.
@@ -8,7 +10,7 @@ Une [documentation est en cours de réalisation](https://darko-itpro.github.io/p
 
 ## Illustration du packaging
 ### Documentation
-Innutile de la paraphraser, la documentation principale est : [le Quickstart setuptools](https://setuptools.pypa.io/en/latest/userguide/quickstart.html).
+Inutile de la paraphraser, la documentation principale est : [le Quickstart setuptools](https://setuptools.pypa.io/en/latest/userguide/quickstart.html).
 
 ### Étapes
 Commencer par installer ou mettre à jour `build` :
@@ -48,7 +50,7 @@ En d'autres termes, vous pouvez créer l'archive avec :
 make build
 ```
 
-et néttoyer votre projet (supprimer le répertoire `dist` et son contenu) avec :
+et nettoyer votre projet (supprimer le répertoire `dist` et son contenu) avec :
 ```shell
 make clean
 ```
