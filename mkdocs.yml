@@ -19,6 +19,17 @@ nav:
       - pyflix.loaders: fr/api/loaders.md
     - Exemple d'usages:
       - Créer des données PyFlix: fr/tutos/data_load.md
+  - English version:
+    - en/index.md
+    - Installation: en/installation.md
+    - Packaging: en/package.md
+    - Packages documentation:
+      - en/api/index.md
+      - pyflix.datasource: en/api/pyflixdatasource.md
+      - pyflix.utils: en/api/utils.md
+      - pyflix.loaders: en/api/loaders.md
+    - Examples:
+      - Create PyFlix data: en/tutos/data_load.md
 theme:
   name: material
   features:

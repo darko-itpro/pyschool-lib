@@ -37,7 +37,7 @@ Commencez par installer ou mettre à jour `build` :
 pip install --upgrade build
 ```
 
-L’archive est créée avec la commande
+L’archive est créée avec la commande :
 ```
 python -m build
 ```
@@ -65,6 +65,7 @@ Adaptez la partie concernant le numéro de version.
 
 ## Automatisation
 Le projet inclut un fichier `makefile` comportant plusieurs actions :
+
  - `.venv/bin/activate` : automatise l'installation et la mise à jour des dépendances avec `pip`.
  - `build` : automatise le packaging en reprenant les actions décrites plus haut en utilisant
    les outils *standard*.

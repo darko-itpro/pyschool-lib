@@ -1,9 +1,7 @@
-from pyflix.media_db import TvShow
-
 # Créer des données PyFlix
 
 ## Créer une série avec des données
-Durant la dormation, vous finirez par créer une class `TvShow(self, name:str)` possédant une méthode
+Durant la formation, vous finirez par créer une class `TvShow(self, name:str)` possédant une méthode
 `add_episode(self, title, season_number, number, duration, year`. vous pouvez charger des données
 grâce à la datasource de ce module.
 
