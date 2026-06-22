@@ -38,7 +38,6 @@ Adjust the section concerning the version number.
 
 ## Automation
 The project includes a `makefile` file containing several actions:
-- `setup`, which automates the installation and updating of dependencies.
 - `build`, which automates packaging by repeating the actions described above (excluding
    installation).
 - `clean`, which deletes the dist directory and its contents.

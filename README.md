@@ -40,7 +40,6 @@ Adaptez la partie concernant le numéro de version.
 
 ## Automatisation
 Le projet inclut un fichier `makefile` comportant plusieurs actions :
- - `setup` qui atomatise l'installation et la mise à jour des dépendances.
  - `build` qui automatise le packaging en reprenant les actions décrites plus haut (hors
    installation).
  - `clean` qui supprime le répertoire dist et son contenu.
